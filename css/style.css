@@ -1,0 +1,86 @@
+/*reset basico css*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.game-board {
+    width: 100%; /*largura da caixa*/
+    height: 600px; /*altura da caixa*/
+    border-bottom: 15px solid green; /*colocando a borda na caixa*/
+    margin: 0 auto; /*centralizando a caixa*/
+    position: relative; /*para que as imagens respeitem os limites da caixa*/
+    overflow: hidden; /*para que tudo que saia da caixa não apareça na tela*/
+    background: linear-gradient(#87CEE8, #E0F6FF);
+}
+
+.pipe {
+    position: absolute; /*absolute para nenhuma imagem interferir no comportamento da outra*/
+    bottom: 0; /*deixar a imagem na parte de baixo da caixa*/
+    width: 80px; /*tamanho do tubo*/
+    animation: pipe-animation 1.9s infinite linear; /*duração da animação e infinite para ela continuar acontecendo, linear para reiniciar a animação*/
+}
+
+.mario {
+    width: 150px; /*tamanho do mario*/
+    position: absolute;
+    bottom: 0;
+}
+
+.jump {
+    animation: jump 500ms ease-out; /*ease-out torna a queda um pouco mais suave*/
+}
+
+.clouds {
+    position: absolute;
+    width: 550px;
+    animation: clouds-animation 20s infinite linear;
+}
+
+/*animação para o pipe ir do inicio ate o final da tela*/
+@keyframes pipe-animation {
+    from {
+        right: -80px; /*inicio do pipe*/
+    }
+
+    to {
+        right: 100%; /*final do pipe*/
+    }
+}
+
+/*animação pulo do mario*/
+@keyframes jump {
+
+    0% {
+        bottom: 0;
+    }
+
+    40% {
+        bottom: 180px;
+    }
+
+    50% {
+        bottom: 180px;
+    }
+
+    60% {
+        bottom: 180px;
+    }
+
+    100% {
+        bottom: 0;
+    }
+
+}
+
+/*animação das nuvens*/
+@keyframes clouds-animation {
+    from {
+        right: -550px;
+    }
+
+    to {
+        right: 100%;
+    }
+}
